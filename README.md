@@ -10,7 +10,7 @@ A modern, mobile-first Progressive Web App (PWA) designed for capturing and orga
 
 ### Voice Recording & Transcription
 - Record audio directly from your device's microphone
-- Automatic transcription using OpenAI's Whisper API
+- Automatic transcription using Whisper (Xenova)'s for Whisper API
 - Base64 encoding for local storage persistence
 - Play back recordings directly in the browser
 
@@ -40,7 +40,7 @@ A modern, mobile-first Progressive Web App (PWA) designed for capturing and orga
 - **Styling**: Tailwind CSS v4
 - **Components**: shadcn/ui
 - **AI SDK**: Vercel AI SDK v5
-- **AI Provider**: Ollama (local) + OpenAI (transcription)
+- **AI Provider**: Ollama (local) + Whisper (Xenova) (transcription)
 - **Storage**: Browser localStorage
 
 ## Prerequisites
@@ -49,7 +49,6 @@ Before you begin, ensure you have:
 
 - Node.js 18+ installed
 - Ollama installed ([Download here](https://ollama.ai))
-- OpenAI API key (optional, for voice transcription)
 - ngrok installed for mobile testing ([Download here](https://ngrok.com))
 
 ## Installation
@@ -89,8 +88,6 @@ Create a `.env.local` file in the root directory:
 OLLAMA_BASE_URL=http://localhost:11434/v1
 OLLAMA_MODEL=llama3.2
 
-# OpenAI Configuration (optional, for voice transcription)
-OPENAI_API_KEY=your-openai-api-key-here
 ```
 
 ### 5. Run Development Server
@@ -140,7 +137,6 @@ ngrok will provide an HTTPS URL like `https://abc123.ngrok.io`. Use this URL on 
 3. Add environment variables:
    - `OLLAMA_BASE_URL` (your production Ollama endpoint)
    - `OLLAMA_MODEL`
-   - `OPENAI_API_KEY` (optional)
 4. Deploy
 
 **Note**: For production, you'll need to host Ollama on a server accessible from your Vercel deployment, or use a cloud-hosted LLM service.
@@ -210,7 +206,7 @@ Enhances text using Ollama with OpenAI-compatible API.
 
 ### POST `/api/transcribe`
 
-Transcribes audio using OpenAI Whisper.
+Transcribes audio using Whisper (Xenova).
 
 **Request Body:**
 - FormData with audio file
@@ -264,7 +260,7 @@ Pull any model with: `ollama pull <model-name>`
 
 ### Voice Transcription Alternatives
 
-Current implementation uses OpenAI Whisper. For a fully local solution:
+Current implementation uses Whisper (Xenova). For a fully local solution:
 
 1. **whisper.cpp**: Run Whisper locally with a REST API wrapper
 2. **Web Speech API**: Browser-based (less accurate, but free)
@@ -302,7 +298,7 @@ MIT License - feel free to use this project for personal or commercial purposes.
 
 - Built with [Next.js](https://nextjs.org/)
 - UI components from [shadcn/ui](https://ui.shadcn.com/)
-- AI powered by [Ollama](https://ollama.ai) and [OpenAI](https://openai.com/)
+- AI powered by [Ollama](https://ollama.ai) and [Whisper (Xenova)](https://huggingface.co/Xenova/whisper-tiny.en)
 - Icons generated with v0
 
 ## Support
