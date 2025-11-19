@@ -56,20 +56,20 @@ Before you begin, ensure you have:
 
 ### 1. Clone the Repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/ai-content-app.git
 cd ai-content-app
-\`\`\`
+
 
 ### 2. Install Dependencies
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+
 
 ### 3. Set Up Ollama
 
-\`\`\`bash
+```bash
 # Install Ollama from https://ollama.ai
 
 # Pull a model (choose one)
@@ -78,26 +78,26 @@ ollama pull llama3.1      # 8B parameters, more capable
 ollama pull mistral       # 7B parameters, good balance
 
 # Ollama will automatically start and run on http://localhost:11434
-\`\`\`
+
 
 ### 4. Configure Environment Variables
 
 Create a `.env.local` file in the root directory:
 
-\`\`\`bash
+```bash
 # Ollama Configuration (required)
 OLLAMA_BASE_URL=http://localhost:11434/v1
 OLLAMA_MODEL=llama3.2
 
 # OpenAI Configuration (optional, for voice transcription)
 OPENAI_API_KEY=your-openai-api-key-here
-\`\`\`
+
 
 ### 5. Run Development Server
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+
 
 The app will be available at [http://localhost:3000](http://localhost:3000)
 
@@ -107,23 +107,23 @@ Since mobile Safari requires HTTPS for microphone access, use ngrok for local te
 
 ### 1. Install ngrok
 
-\`\`\`bash
+```bash
 npm install -g ngrok
-\`\`\`
+
 
 ### 2. Start Your Dev Server
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+
 
 ### 3. Create HTTPS Tunnel
 
 In a new terminal:
 
-\`\`\`bash
+```bash
 ngrok http 3000
-\`\`\`
+
 
 ### 4. Access on Mobile
 
@@ -194,19 +194,19 @@ ngrok will provide an HTTPS URL like `https://abc123.ngrok.io`. Use this URL on 
 Enhances text using Ollama with OpenAI-compatible API.
 
 **Request Body:**
-\`\`\`json
+json
 {
   "text": "Your text here",
   "action": "improve" | "summarize" | "expand" | "tags"
 }
-\`\`\`
+
 
 **Response:**
-\`\`\`json
+json
 {
   "result": "Enhanced text"
 }
-\`\`\`
+
 
 ### POST `/api/transcribe`
 
@@ -216,17 +216,17 @@ Transcribes audio using OpenAI Whisper.
 - FormData with audio file
 
 **Response:**
-\`\`\`json
+json
 {
   "transcript": {
     "text": "Transcribed text"
   }
 }
-\`\`\`
+
 
 ## Project Structure
 
-\`\`\`
+
 ├── app/
 │   ├── api/
 │   │   ├── enhance/route.ts      # Text enhancement endpoint
@@ -245,7 +245,7 @@ Transcribes audio using OpenAI Whisper.
 │   ├── manifest.json             # PWA manifest
 │   └── *.png                     # App icons
 └── README.md
-\`\`\`
+
 
 ## Configuration Options
 
